@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WhiteRabbit Framework Docs</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  pre { white-space: pre-wrap; }
+</style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans">
+
+<!-- Top Navbar -->
+<nav class="fixed w-full bg-white shadow z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <a class="text-2xl font-bold text-red-700" href="/">WhiteRabbit</a>
+    <div class="hidden md:flex space-x-6">
+      <a href="#introduction" class="text-gray-700 hover:text-red-600 font-medium">Introduction</a>
+      <a href="#installation" class="text-gray-700 hover:text-red-600 font-medium">Installation</a>
+      <a href="#project-structure" class="text-gray-700 hover:text-red-600 font-medium">Project Structure</a>
+      <a href="#getting-started" class="text-gray-700 hover:text-red-600 font-medium">Getting Started</a>
+      <a href="#routing" class="text-gray-700 hover:text-red-600 font-medium">Routing</a>
+      <a href="#templates" class="text-gray-700 hover:text-red-600 font-medium">Templates</a>
+      <a href="#static-files" class="text-gray-700 hover:text-red-600 font-medium">Static Files</a>
+      <a href="#components" class="text-gray-700 hover:text-red-600 font-medium">Components</a>
+      <a href="#running-the-app" class="text-gray-700 hover:text-red-600 font-medium">Running</a>
+    </div>
+    <!-- Mobile Menu Button -->
+    <button id="menu-btn" class="md:hidden text-gray-700 text-3xl focus:outline-none">&#9776;</button>
+  </div>
+</nav>
+
+<!-- Mobile Sidebar -->
+<aside id="sidebar" class="fixed top-0 left-0 h-full w-64 bg-red-700 text-white p-6 overflow-y-auto transform -translate-x-full transition-transform duration-300 ease-in-out z-40 md:hidden mt-16">
+  <h2 class="text-xl font-bold text-center mb-6">Docs Navigation</h2>
+  <nav class="space-y-2">
+    <a href="#introduction" class="block px-3 py-2 rounded hover:bg-red-600 transition">Introduction</a>
+    <a href="#installation" class="block px-3 py-2 rounded hover:bg-red-600 transition">Installation</a>
+    <a href="#project-structure" class="block px-3 py-2 rounded hover:bg-red-600 transition">Project Structure</a>
+    <a href="#getting-started" class="block px-3 py-2 rounded hover:bg-red-600 transition">Getting Started</a>
+    <a href="#routing" class="block px-3 py-2 rounded hover:bg-red-600 transition">Routing</a>
+    <a href="#templates" class="block px-3 py-2 rounded hover:bg-red-600 transition">Templates</a>
+    <a href="#static-files" class="block px-3 py-2 rounded hover:bg-red-600 transition">Static Files</a>
+    <a href="#components" class="block px-3 py-2 rounded hover:bg-red-600 transition">Components</a>
+    <a href="#running-the-app" class="block px-3 py-2 rounded hover:bg-red-600 transition">Running</a>
+  </nav>
+</aside>
+
+<!-- Main Content -->
+<main class="pt-24 px-6 max-w-5xl mx-auto transition-all duration-300">
+
+    <h1 class="text-4xl md:text-5xl font-bold text-red-700 mb-12 text-center">WhiteRabbit Framework Documentation</h1>
+
+    <!-- Sections -->
+    <section id="introduction" class="mb-12">
+        <h2 class="text-2xl md:text-3xl font-semibold text-red-700 mb-4">Introduction</h2>
+        <p>WhiteRabbit is a lightweight Python web framework for building fast and simple web applications with routing, template rendering, static file handling, and middleware support.</p>
+    </section>
+
+    <section id="installation" class="mb-12">
+        <h2 class="text-2xl md:text-3xl font-semibold text-red-700 mb-4">Installation</h2>
+        <pre class="bg-gray-100 p-4 rounded shadow overflow-x-auto"><code>git clone https://github.com/yourusername/whiterabbit.git
+cd whiterabbit
+pip install -r requirements.txt</code></pre>
+    </section>
+
+    <section id="project-structure" class="mb-12">
+        <h2 class="text-2xl md:text-3xl font-semibold text-red-700 mb-4">Project Structure</h2>
+        <pre class="bg-gray-100 p-4 rounded shadow overflow-x-auto"><code>
+whiterabbit/
+    __init__.py
+    app.py
+    router.py
+    response.py
+    templates.py
+    middleware.py
+    
+src/
+    app.py
+    routes/
+        landing.py
+        docs.py
+    components/
+        navbar.py
+    templates/
+        index.html
+        docs.html
+    static/
+        style.css
+        </code></pre>
+    </section>
+
+    <section id="getting-started" class="mb-12">
+        <h2 class="text-2xl md:text-3xl font-semibold text-red-700 mb-4">Getting Started</h2>
+        <pre class="bg-gray-100 p-4 rounded shadow overflow-x-auto"><code>from whiterabbit import App
+from src.routes import landing, docs
+
+app = App()
+
+if __name__ == "__main__":
+    app.run()</code></pre>
+    </section>
+
+    <section id="routing" class="mb-12">
+        <h2 class="text-2xl md:text-3xl font-semibold text-red-700 mb-4">Routing</h2>
+        <pre class="bg-gray-100 p-4 rounded shadow overflow-x-auto"><code>from whiterabbit import app
+from whiterabbit.components.navbar import Navbar
+
+@app.route("/")
+def landing(request):
+    navbar = Navbar()
+    return app.render_template("index.html", {"navbar": navbar.render()})</code></pre>
+    </section>
+
+    <section id="templates" class="mb-12">
+        <h2 class="text-2xl md:text-3xl font-semibold text-red-700 mb-4">Templates</h2>
+        <p>Use <code>{{ variable }}</code> in your HTML templates for dynamic content.</p>
+    </section>
+
+    <section id="static-files" class="mb-12">
+        <h2 class="text-2xl md:text-3xl font-semibold text-red-700 mb-4">Static Files</h2>
+        <p>Store CSS, JS, images inside <code>src/static/</code> and reference them using <code>/static/filename</code>.</p>
+    </section>
+
+    <section id="components" class="mb-12">
+        <h2 class="text-2xl md:text-3xl font-semibold text-red-700 mb-4">Components</h2>
+        <p>Create reusable components inside <code>src/components/</code> and render them in templates.</p>
+    </section>
+
+    <section id="running-the-app" class="mb-12">
+        <h2 class="text-2xl md:text-3xl font-semibold text-red-700 mb-4">Running the App</h2>
+        <pre class="bg-gray-100 p-4 rounded shadow overflow-x-auto"><code>python -m src.app
+# Open http://127.0.0.1:8000</code></pre>
+    </section>
+
+    <a href="/" class="bg-red-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-600 transition shadow inline-block mb-12">Back to Home</a>
+</main>
+
+<!-- Footer -->
+<footer class="bg-red-700 text-white py-6 mt-12 text-center shadow-inner">
+    &copy; 2025 WhiteRabbit Framework. All rights reserved.
+</footer>
+
+<!-- Sidebar toggle script -->
+<script>
+const menuBtn = document.getElementById('menu-btn');
+const sidebar = document.getElementById('sidebar');
+
+menuBtn.addEventListener('click', () => {
+  sidebar.classList.toggle('-translate-x-full');
+});
+</script>
+
+</body>
+</html>

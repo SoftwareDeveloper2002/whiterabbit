@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WhiteRabbit Framework</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  html {
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+  }
+</style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans">
+
+<!-- Navbar -->
+<nav class="fixed w-full bg-white shadow z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold text-red-700">WhiteRabbit</h1>
+    <div class="space-x-6">
+      <a href="#home" class="text-gray-700 hover:text-red-600 font-medium">Home</a>
+      <a href="#features" class="text-gray-700 hover:text-red-600 font-medium">Features</a>
+      <a href="#quickstart" class="text-gray-700 hover:text-red-600 font-medium">Quick Start</a>
+      <a href="#docs" class="text-gray-700 hover:text-red-600 font-medium">Docs</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="pt-24 pb-20 bg-red-50 text-center">
+  <h2 class="text-4xl md:text-5xl font-bold text-red-700 mb-4">Welcome to WhiteRabbit Framework</h2>
+  <p class="text-lg md:text-xl text-gray-700 mb-6">A lightweight Python web framework for building fast, simple, and maintainable web applications.</p>
+  <a href="#docs" class="bg-red-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-600 transition-shadow shadow-md">View Documentation</a>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="py-20 max-w-6xl mx-auto px-6">
+  <h2 class="text-3xl font-bold text-red-700 mb-12 text-center">Why Use WhiteRabbit?</h2>
+  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
+      <h3 class="text-xl font-semibold text-red-700 mb-2">Simple Routing</h3>
+      <p>Define routes easily using decorators. No complicated configuration is needed.</p>
+    </div>
+    <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
+      <h3 class="text-xl font-semibold text-red-700 mb-2">Template Rendering</h3>
+      <p>Use HTML templates with dynamic content injection using <code>{{ variable }}</code> syntax.</p>
+    </div>
+    <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
+      <h3 class="text-xl font-semibold text-red-700 mb-2">Middleware Support</h3>
+      <p>Add middleware functions to handle requests and responses globally.</p>
+    </div>
+    <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
+      <h3 class="text-xl font-semibold text-red-700 mb-2">Static Files & Components</h3>
+      <p>Serve static files like CSS/JS and create reusable UI components easily.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Quick Start Section -->
+<section id="quickstart" class="py-20 bg-red-50">
+  <div class="max-w-4xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-red-700 mb-6 text-center">Quick Start</h2>
+    <p class="text-gray-700 mb-6 text-center">Get your first WhiteRabbit application running in minutes:</p>
+    <pre class="bg-white p-6 rounded-lg shadow overflow-x-auto text-sm"><code>from whiterabbit import App
+from src.routes import landing, docs
+
+app = App()
+
+if __name__ == "__main__":
+    app.run()  # Open http://127.0.0.1:8000
+</code></pre>
+    <p class="text-gray-700 mt-4 text-center">Then create routes in <code>src/routes/</code> and templates in <code>src/templates/</code>.</p>
+  </div>
+</section>
+
+<!-- Docs Section -->
+<section id="docs" class="py-20 max-w-6xl mx-auto px-6">
+  <h2 class="text-3xl font-bold text-red-700 mb-6 text-center">Documentation</h2>
+  <p class="text-gray-700 text-center">Explore the full WhiteRabbit framework documentation <a href="/docs" class="text-red-700 hover:underline font-semibold">here</a>.</p>
+</section>
+
+<!-- Footer -->
+<footer class="bg-red-700 text-white py-6 mt-20 text-center">
+  &copy; 2025 WhiteRabbit Framework. All rights reserved.
+</footer>
+
+</body>
+</html>
