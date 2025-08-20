@@ -12,11 +12,33 @@
 </head>
 <body class="bg-gray-50 text-gray-900 font-sans">
 
-<!-- Top Navbar -->
 <nav class="fixed w-full bg-white shadow z-50">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-    <a class="text-2xl font-bold text-red-700" href="/">WhiteRabbit</a>
-    <div class="hidden md:flex space-x-6">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex flex-wrap justify-between items-center">
+  <!-- Logo -->
+  <a class="text-2xl font-bold text-red-700 mb-2 md:mb-0" href="/">WhiteRabbit</a>
+
+  <!-- Desktop Links -->
+  <div class="hidden md:flex flex-wrap justify-end space-x-6 w-full md:w-auto">
+    <a href="#introduction" class="text-gray-700 hover:text-red-600 font-medium">Introduction</a>
+    <a href="#installation" class="text-gray-700 hover:text-red-600 font-medium">Installation</a>
+    <a href="#project-structure" class="text-gray-700 hover:text-red-600 font-medium">Project Structure</a>
+    <a href="#getting-started" class="text-gray-700 hover:text-red-600 font-medium">Getting Started</a>
+    <a href="#routing" class="text-gray-700 hover:text-red-600 font-medium">Routing</a>
+    <a href="#templates" class="text-gray-700 hover:text-red-600 font-medium">Templates</a>
+    <a href="#static-files" class="text-gray-700 hover:text-red-600 font-medium">Static Files</a>
+    <a href="#components" class="text-gray-700 hover:text-red-600 font-medium">Components</a>
+    <a href="#middleware" class="text-gray-700 hover:text-red-600 font-medium">Middleware</a>
+    <a href="#running-the-app" class="text-gray-700 hover:text-red-600 font-medium">Running</a>
+    <a href="#troubleshooting" class="text-gray-700 hover:text-red-600 font-medium">Troubleshooting</a>
+  </div>
+
+  <!-- Mobile Menu Button -->
+  <button id="menu-btn" class="md:hidden text-gray-700 text-3xl focus:outline-none">&#9776;</button>
+</div>
+
+  <!-- Mobile Menu (hidden by default) -->
+  <div id="mobile-menu" class="md:hidden bg-white shadow-lg hidden">
+    <nav class="flex flex-col p-4 space-y-2">
       <a href="#introduction" class="text-gray-700 hover:text-red-600 font-medium">Introduction</a>
       <a href="#installation" class="text-gray-700 hover:text-red-600 font-medium">Installation</a>
       <a href="#project-structure" class="text-gray-700 hover:text-red-600 font-medium">Project Structure</a>
@@ -25,12 +47,13 @@
       <a href="#templates" class="text-gray-700 hover:text-red-600 font-medium">Templates</a>
       <a href="#static-files" class="text-gray-700 hover:text-red-600 font-medium">Static Files</a>
       <a href="#components" class="text-gray-700 hover:text-red-600 font-medium">Components</a>
+      <a href="#middleware" class="text-gray-700 hover:text-red-600 font-medium">Middleware</a>
       <a href="#running-the-app" class="text-gray-700 hover:text-red-600 font-medium">Running</a>
-    </div>
-    <!-- Mobile Menu Button -->
-    <button id="menu-btn" class="md:hidden text-gray-700 text-3xl focus:outline-none">&#9776;</button>
+      <a href="#troubleshooting" class="text-gray-700 hover:text-red-600 font-medium">Troubleshooting</a>
+    </nav>
   </div>
 </nav>
+
 
 <!-- Mobile Sidebar -->
 <aside id="sidebar" class="fixed top-0 left-0 h-full w-64 bg-red-700 text-white p-6 overflow-y-auto transform -translate-x-full transition-transform duration-300 ease-in-out z-40 md:hidden mt-16">
@@ -44,112 +67,216 @@
     <a href="#templates" class="block px-3 py-2 rounded hover:bg-red-600 transition">Templates</a>
     <a href="#static-files" class="block px-3 py-2 rounded hover:bg-red-600 transition">Static Files</a>
     <a href="#components" class="block px-3 py-2 rounded hover:bg-red-600 transition">Components</a>
+    <a href="#middleware" class="block px-3 py-2 rounded hover:bg-red-600 transition">Middleware</a>
     <a href="#running-the-app" class="block px-3 py-2 rounded hover:bg-red-600 transition">Running</a>
+    <a href="#troubleshooting" class="block px-3 py-2 rounded hover:bg-red-600 transition">Troubleshooting</a>
   </nav>
 </aside>
 
 <!-- Main Content -->
 <main class="pt-24 px-6 max-w-5xl mx-auto transition-all duration-300">
 
-    <h1 class="text-4xl md:text-5xl font-bold text-red-700 mb-12 text-center">WhiteRabbit Framework Documentation</h1>
+  <h1 class="text-4xl md:text-5xl font-bold text-red-700 mb-12 text-center">WhiteRabbit Framework Documentation</h1>
 
-    <!-- Sections -->
-    <section id="introduction" class="mb-12">
-        <h2 class="text-2xl md:text-3xl font-semibold text-red-700 mb-4">Introduction</h2>
-        <p>WhiteRabbit is a lightweight Python web framework for building fast and simple web applications with routing, template rendering, static file handling, and middleware support.</p>
-    </section>
+  <!-- Introduction -->
+  <section id="introduction" class="mb-12">
+    <h2 class="text-2xl md:text-3xl font-semibold text-red-700 mb-4">Introduction</h2>
+    <p>
+      WhiteRabbit is a Python web framework built to balance simplicity and performance. Unlike large frameworks, WhiteRabbit focuses on essential web development features like routing, template rendering, static files, and middleware handling. It's ideal for small projects, learning, or building fast prototypes.  
+    </p>
+    <p>
+      The framework is lightweight and requires minimal setup. It emphasizes readability, clean code structure, and reusability through components, so developers can scale their projects without being overwhelmed by unnecessary boilerplate.
+    </p>
+  </section>
 
-    <section id="installation" class="mb-12">
-        <h2 class="text-2xl md:text-3xl font-semibold text-red-700 mb-4">Installation</h2>
-        <pre class="bg-gray-100 p-4 rounded shadow overflow-x-auto"><code>git clone https://github.com/yourusername/whiterabbit.git
+  <!-- Installation -->
+  <section id="installation" class="mb-12">
+    <h2 class="text-2xl md:text-3xl font-semibold text-red-700 mb-4">Installation</h2>
+    <pre class="bg-gray-100 p-4 rounded shadow overflow-x-auto"><code>git clone https://github.com/yourusername/whiterabbit.git
 cd whiterabbit
 pip install -r requirements.txt</code></pre>
-    </section>
+    <p>
+      <strong>Guide:</strong> Ensure Python 3.11+ is installed. Using a virtual environment is highly recommended:
+    </p>
+    <pre class="bg-gray-100 p-4 rounded shadow overflow-x-auto"><code>python -m venv venv
+source venv/bin/activate  # Linux/macOS
+venv\Scripts\activate     # Windows</code></pre>
+    <p>This isolates your project dependencies and prevents conflicts with other Python packages.</p>
+  </section>
 
-    <section id="project-structure" class="mb-12">
-        <h2 class="text-2xl md:text-3xl font-semibold text-red-700 mb-4">Project Structure</h2>
-        <pre class="bg-gray-100 p-4 rounded shadow overflow-x-auto"><code>
+  <!-- Project Structure -->
+  <section id="project-structure" class="mb-12">
+    <h2 class="text-2xl md:text-3xl font-semibold text-red-700 mb-4">Project Structure</h2>
+    <pre class="bg-gray-100 p-4 rounded shadow overflow-x-auto"><code>
 whiterabbit/
-    __init__.py
-    app.py
-    router.py
-    response.py
-    templates.py
-    middleware.py
-    
+    __init__.py        # Core framework initialization
+    app.py             # Main app class
+    router.py          # Handles route registration and dispatch
+    response.py        # HTTP response utilities
+    templates.py       # Template rendering engine
+    middleware.py      # Middleware handling
 src/
-    app.py
+    app.py             # Application entry point
     routes/
-        landing.py
-        docs.py
+        landing.py     # Example landing page routes
+        docs.py        # Documentation routes
     components/
-        navbar.py
+        navbar.py      # Reusable navigation bar component
     templates/
-        index.html
-        docs.html
+        index.html     # Homepage template
+        docs.html      # Documentation template
     static/
-        style.css
-        </code></pre>
-    </section>
+        style.css      # Global CSS
+    </code></pre>
+    <p>
+      <strong>Guide:</strong> Follow this structure for a maintainable project.  
+      - <code>whiterabbit/</code> contains framework code.  
+      - <code>src/</code> is where your application-specific code lives.  
+      - Keep templates organized and components reusable to maximize efficiency.
+    </p>
+  </section>
 
-    <section id="getting-started" class="mb-12">
-        <h2 class="text-2xl md:text-3xl font-semibold text-red-700 mb-4">Getting Started</h2>
-        <pre class="bg-gray-100 p-4 rounded shadow overflow-x-auto"><code>from whiterabbit import App
+  <!-- Getting Started -->
+  <section id="getting-started" class="mb-12">
+    <h2 class="text-2xl md:text-3xl font-semibold text-red-700 mb-4">Getting Started</h2>
+    <pre class="bg-gray-100 p-4 rounded shadow overflow-x-auto"><code>from whiterabbit import App
 from src.routes import landing, docs
 
 app = App()
 
 if __name__ == "__main__":
     app.run()</code></pre>
-    </section>
+    <p>
+      <strong>Guide:</strong> This sets up the app instance and starts a local server.  
+      Navigate to <code>http://127.0.0.1:8000</code> to see your first page.  
+      WhiteRabbit automatically discovers routes defined with <code>@app.route</code> decorators.
+    </p>
+  </section>
 
-    <section id="routing" class="mb-12">
-        <h2 class="text-2xl md:text-3xl font-semibold text-red-700 mb-4">Routing</h2>
-        <pre class="bg-gray-100 p-4 rounded shadow overflow-x-auto"><code>from whiterabbit import app
+  <!-- Routing -->
+  <section id="routing" class="mb-12">
+    <h2 class="text-2xl md:text-3xl font-semibold text-red-700 mb-4">Routing</h2>
+    <pre class="bg-gray-100 p-4 rounded shadow overflow-x-auto"><code>from whiterabbit import app
 from whiterabbit.components.navbar import Navbar
 
 @app.route("/")
 def landing(request):
     navbar = Navbar()
     return app.render_template("index.html", {"navbar": navbar.render()})</code></pre>
-    </section>
+    <p>
+      <strong>Guide:</strong> Routes map URLs to functions. Each route receives a <code>request</code> object and should return HTML or other content.  
+      - Use parameters in paths: <code>@app.route("/user/&lt;username&gt;")</code>.  
+      - WhiteRabbit automatically parses these parameters and passes them to your function.
+    </p>
+  </section>
 
-    <section id="templates" class="mb-12">
-        <h2 class="text-2xl md:text-3xl font-semibold text-red-700 mb-4">Templates</h2>
-        <p>Use <code>{{ variable }}</code> in your HTML templates for dynamic content.</p>
-    </section>
+  <!-- Templates -->
+  <section id="templates" class="mb-12">
+    <h2 class="text-2xl md:text-3xl font-semibold text-red-700 mb-4">Templates</h2>
+    <p>Use <code>{{ variable }}</code> in your HTML templates to insert dynamic data from your routes.</p>
+    <p>
+      <strong>Guide:</strong> Templates live in <code>src/templates/</code>.  
+      Example:
+    </p>
+    <pre class="bg-gray-100 p-4 rounded shadow overflow-x-auto"><code>&lt;h1&gt;Hello, {{ username }}!&lt;/h1&gt;</code></pre>
+    <p>
+      In your route:
+    </p>
+    <pre class="bg-gray-100 p-4 rounded shadow overflow-x-auto"><code>return app.render_template("index.html", {"username": "Robby"})</code></pre>
+    <p>
+      WhiteRabbit's template engine is lightweight and fast. It supports basic logic like loops and conditionals for dynamic page content.
+    </p>
+  </section>
 
-    <section id="static-files" class="mb-12">
-        <h2 class="text-2xl md:text-3xl font-semibold text-red-700 mb-4">Static Files</h2>
-        <p>Store CSS, JS, images inside <code>src/static/</code> and reference them using <code>/static/filename</code>.</p>
-    </section>
+  <!-- Static Files -->
+  <section id="static-files" class="mb-12">
+    <h2 class="text-2xl md:text-3xl font-semibold text-red-700 mb-4">Static Files</h2>
+    <p>Place CSS, JS, images inside <code>src/static/</code> and reference them using <code>/static/filename</code>.</p>
+    <p>
+      <strong>Guide:</strong>  
+      - Organize files into subfolders like <code>css/</code>, <code>js/</code>, <code>images/</code>.  
+      - Link them in templates with: <code>&lt;link rel="stylesheet" href="/static/css/style.css"&gt;</code>.  
+      - WhiteRabbit serves static files efficiently without extra configuration.
+    </p>
+  </section>
 
-    <section id="components" class="mb-12">
-        <h2 class="text-2xl md:text-3xl font-semibold text-red-700 mb-4">Components</h2>
-        <p>Create reusable components inside <code>src/components/</code> and render them in templates.</p>
-    </section>
+  <!-- Components -->
+  <section id="components" class="mb-12">
+    <h2 class="text-2xl md:text-3xl font-semibold text-red-700 mb-4">Components</h2>
+    <p>Components are reusable pieces of HTML logic, such as navbars, footers, or custom widgets.</p>
+    <p>
+      <strong>Guide:</strong>  
+      - Create classes in <code>src/components/</code> with a <code>render()</code> method returning HTML strings.  
+      - Example:
+    </p>
+    <pre class="bg-gray-100 p-4 rounded shadow overflow-x-auto"><code>class Navbar:
+    def render(self):
+        return '&lt;nav&gt;&lt;a href="/"&gt;Home&lt;/a&gt;&lt;/nav&gt;'</code></pre>
+    <p>
+      Render in a route:
+    </p>
+    <pre class="bg-gray-100 p-4 rounded shadow overflow-x-auto"><code>navbar = Navbar()
+return app.render_template("index.html", {"navbar": navbar.render()})</code></pre>
+  </section>
 
-    <section id="running-the-app" class="mb-12">
-        <h2 class="text-2xl md:text-3xl font-semibold text-red-700 mb-4">Running the App</h2>
-        <pre class="bg-gray-100 p-4 rounded shadow overflow-x-auto"><code>python -m src.app
+  <!-- Middleware -->
+  <section id="middleware" class="mb-12">
+    <h2 class="text-2xl md:text-3xl font-semibold text-red-700 mb-4">Middleware</h2>
+    <p>
+      Middleware functions allow you to intercept requests and responses globally. Examples include authentication checks, logging, or error handling.
+    </p>
+    <p>
+      <strong>Guide:</strong>  
+      - Middleware functions accept <code>request</code> and optionally <code>response</code>.  
+      - Register with <code>app.add_middleware(your_middleware_function)</code>.
+    </p>
+    <pre class="bg-gray-100 p-4 rounded shadow overflow-x-auto"><code>def logger(request, response=None):
+    print(f"Request path: {request.path}")
+
+app.add_middleware(logger)</code></pre>
+    <p>Middleware is executed in the order registered, allowing flexible control over request/response lifecycle.</p>
+  </section>
+
+  <!-- Running the App -->
+  <section id="running-the-app" class="mb-12">
+    <h2 class="text-2xl md:text-3xl font-semibold text-red-700 mb-4">Running the App</h2>
+    <pre class="bg-gray-100 p-4 rounded shadow overflow-x-auto"><code>python -m src.app
 # Open http://127.0.0.1:8000</code></pre>
-    </section>
+    <p>
+      <strong>Guide:</strong> Run your application with Python.  
+      - Change port: <code>app.run(port=8001)</code>.  
+      - Use <code>debug=True</code> for live reload and detailed error messages during development.
+    </p>
+  </section>
 
-    <a href="/" class="bg-red-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-600 transition shadow inline-block mb-12">Back to Home</a>
+  <!-- Troubleshooting -->
+  <section id="troubleshooting" class="mb-12">
+    <h2 class="text-2xl md:text-3xl font-semibold text-red-700 mb-4">Troubleshooting & Common Problems</h2>
+    <ul class="list-disc pl-6 space-y-2">
+      <li><strong>ModuleNotFoundError:</strong> Make sure all dependencies are installed using <code>pip install -r requirements.txt</code>.</li>
+      <li><strong>Port Already in Use:</strong> Change the port in <code>app.run(port=8001)</code> or stop the conflicting process.</li>
+      <li><strong>Templates Not Loading:</strong> Ensure templates are inside <code>src/templates/</code> and names match exactly.</li>
+      <li><strong>Static Files Not Loading:</strong> Verify <code>src/static/</code> paths and correct references in templates.</li>
+      <li><strong>Navbar/Components Not Showing:</strong> Check that <code>component.render()</code> is returned and passed to template context.</li>
+      <li><strong>Server Fails to Start:</strong> Confirm Python version >=3.11 and virtual environment is active.</li>
+      <li><strong>Debugging Tips:</strong> Use <code>print()</code> statements in routes or middleware to inspect data flow. Use browser dev tools for network/static file issues.</li>
+    </ul>
+  </section>
+
+  <a href="/" class="bg-red-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-600 transition shadow inline-block mb-12">Back to Home</a>
 </main>
 
 <!-- Footer -->
 <footer class="bg-red-700 text-white py-6 mt-12 text-center shadow-inner">
-    &copy; 2025 WhiteRabbit Framework. All rights reserved.
+  &copy; 2025 WhiteRabbit Framework. All rights reserved.
 </footer>
 
-<!-- Sidebar toggle script -->
 <script>
 const menuBtn = document.getElementById('menu-btn');
-const sidebar = document.getElementById('sidebar');
+const mobileMenu = document.getElementById('mobile-menu');
 
 menuBtn.addEventListener('click', () => {
-  sidebar.classList.toggle('-translate-x-full');
+  mobileMenu.classList.toggle('hidden');
 });
 </script>
 

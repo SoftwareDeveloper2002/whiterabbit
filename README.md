@@ -28,6 +28,6 @@
 ## Installation ⚡
 
 ```bash
-git clone https://github.com/yourusername/whiterabbit.git
+git clone https://github.com/SoftwareDeveloper2002/whiterabbit.git
 cd whiterabbit
 pip install -r requirements.txt
